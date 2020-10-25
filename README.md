@@ -4,7 +4,7 @@ Demo code for Sheffield Ethical Student Hackers' Automation in Python session.
 
 ## blindcommit.sh
 
-Demonstrates the 'gitgone' code shown in session. If run, WILL commit all changes to master - so be careful!
+Demonstrates the 'gitgone' code shown in session. Echoes some text to commit-this.txt so there's something to send off. If run, WILL commit + push all changes to master - so be careful!
 
 ## params-and-flags
 
