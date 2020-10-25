@@ -1,0 +1,34 @@
+#!/bin/bash
+
+print_usage() {
+    printf "usage: getopts [paramone] [paramtwo]\n\toptions:\n\t\t-s    Standalone flag - no input\n\t\t-i    Flag with input afterwards\n"
+}
+
+#default variables
+STANDALONE="No standalone flag present"
+INPUT="No input flag present"
+OTHER_ARGUMENTS=()
+
+#loop over args and use case to detect standard flags - shift moves along array by one item
+for arg in "$@"
+do
+   case $arg in
+      -s|--standalone)
+      STANDALONE="Standalone flag present"
+      shift ;;
+      -i|--input)
+      INPUT="$2"
+      shift
+      shift ;;
+      -h|--help)
+      print_usage
+      exit 1 ;;
+      *)
+      OTHER_ARGUMENTS+=("$1")
+      shift ;;
+   esac
+done
+
+echo "$STANDALONE"
+echo "Flag with input present - input: $INPUT"
+echo "Other parameters: ${OTHER_ARGUMENTS[*]}"
